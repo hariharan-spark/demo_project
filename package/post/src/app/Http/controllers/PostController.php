@@ -49,5 +49,5 @@ class PostController extends Controller
         $this->post->where('id',$id)->delete();
         return back();
 
-    }
+    }  
 }

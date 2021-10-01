@@ -24,12 +24,8 @@ Route::get('/index', [LoginController::class, 'index']);
 Route::post('/register', [LoginController::class, 'userRegister'])->name('user-register');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::POST('/user-login', [LoginController::class, 'userLogin'])->name('user-login');
-Route::get('/dashboard', [LoginController::class, 'userDashboard']);
+Route::get('/dashboard', [LoginController::class, 'userDashboard'])->middleware('user_verified');
+
 
 Route::get('/curl/{name}', [LoginController::class, 'curl']);
-
-
-
-
-
-
+ 

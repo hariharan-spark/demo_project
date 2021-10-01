@@ -31,11 +31,7 @@ class LoginController extends Controller
     public function userRegister(RegisterRequest $request)
     {
      
-        $create=$this->user->create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>$request->password,
-        ]);
+        $create=$this->user->create($request->all());
         $user= $this->user->where('email',$request->email)->first();
         dispatch( new RegisterMailJob($user));
         return redirect('/login');  

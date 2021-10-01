@@ -12,15 +12,15 @@
   <div class="form-group-row">
     <div class="form-group col-md-6">
       <label for="inputName">Name</label>
-      <input type="text" class="form-control"name="name" id="inputName">
+      <input type="text" class="form-control"name="name" id="inputName" required>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPost">Post</label>
-      <input type="text" class="form-control" name="post" id="inputPost">
+      <input type="text" class="form-control" name="post" id="inputPost" required>
     </div>
     <div class="form-group col-md-6">
       <label for="inputComments">Comments</label>
-      <input type="text" class="form-control" name="comment" id="inputComments">
+      <input type="text" class="form-control" name="comment" id="inputComments" required>
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Add Post</button>

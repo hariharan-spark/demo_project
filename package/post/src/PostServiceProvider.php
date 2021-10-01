@@ -45,6 +45,7 @@ class PostServiceProvider extends ServiceProvider
     }
 
     /**
+     * 
      * Register the application services.
      */
     public function register()
@@ -58,3 +59,4 @@ class PostServiceProvider extends ServiceProvider
         });
     }
 }
+

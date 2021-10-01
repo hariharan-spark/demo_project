@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Register</title>
 </head>
 <body>
 <section class="vh-100" style="background-color: #eee;">
@@ -26,6 +26,7 @@
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="text" id="form3Example1c" name="name" class="form-control" />
+                      <span class="text" style="color: red;">@error('name'){{$message}}@enderror</span>
                       <label class="form-label" for="form3Example1c">Your Name</label>
                     </div>
                   </div>
@@ -34,6 +35,7 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="email" id="form3Example3c" name="email" class="form-control" />
+                      <span class="text" style="color: red;">@error('email'){{$message}}@enderror</span>
                       <label class="form-label" for="form3Example3c">Your Email</label>
                     </div>
                   </div>
@@ -42,6 +44,8 @@
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="password" id="form3Example4c" name="password" class="form-control" />
+                      <span class="text" style="color: red;">@error('password'){{$message}}@enderror</span>
+
                       <label class="form-label" for="form3Example4c">Password</label>
                     </div>
                   </div>

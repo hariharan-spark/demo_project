@@ -2,7 +2,7 @@
 
 use Package\Post\PostServiceProvider;
 
-return [
+return [ 
 
     /*
     |--------------------------------------------------------------------------
