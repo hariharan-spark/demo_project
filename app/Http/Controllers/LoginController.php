@@ -9,6 +9,8 @@ use App\Http\Requests\RegisterRequest;
 use App\Jobs\RegisterMailJob;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Hash;
+
 
 
 
@@ -30,8 +32,12 @@ class LoginController extends Controller
 
     public function userRegister(RegisterRequest $request)
     {
-     
-        $create=$this->user->create($request->all());
+         
+        $create=$this->user->create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=> Hash::make($request->password)
+         ]);
         $user= $this->user->where('email',$request->email)->first();
         dispatch( new RegisterMailJob($user));
         return redirect('/login');  
@@ -44,9 +50,10 @@ class LoginController extends Controller
   
     public function userLogin(LoginRequest $request)
     {
-        $user = $this->user->where('email',$request->email)->where('password',$request->password)->first();
-        if ($user) {
-            Session::put('id',$user->id);
+     
+        $user = $this->user->where('email',$request->email)->first();
+        if ($user && Hash::check($request->password, $user->password)) {
+            $request->session()->put('id', $user->id);
             return redirect('/dashboard');
         }else{
             return back();

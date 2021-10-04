@@ -31,22 +31,16 @@ class PostController extends Controller
     }
 
 
-    public function editPost($id)
-    {
-      
-        $edit=$this->post->where('id',$id)->first();
-         return view('post::edit',compact('edit'));
-    }
-
     public function updatePost(Request $request)
     {
+       
       $updatepost=$this->post->where('id',$request->id)->update($request->all());
         return redirect('/getpost');  
     }
 
-    public function deletePost($id)
+    public function deletePost(Request $request)
     {
-        $this->post->where('id',$id)->delete();
+        $this->post->where('id',$request->id)->delete();
         return back();
 
     }  
