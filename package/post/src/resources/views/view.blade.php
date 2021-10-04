@@ -14,7 +14,7 @@
     <title>Post CRUD</title>
 </head>
 <body>
-<a href="#" class="btn btn-primary deletebtn" style="margin-top: 1rem;">File Upload</a>
+<a href="/file" class="btn btn-primary deletebtn" style="margin-top: 1rem;">File Upload</a>
 <a href="/post" class="btn btn-secondary deletebtn top corner" style="margin-top:1rem;float:right;">Add Post</a>
 <table class="table table-bordered table-striped table-dark">
   

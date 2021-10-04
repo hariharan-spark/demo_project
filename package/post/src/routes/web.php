@@ -30,6 +30,12 @@ Route::post('/store-file', [FileController::class, 'store']);
 
 
 
+Route::post('file-import', [FileController::class, 'fileImport'])->name('file-import');
+Route::get('file-export', [FileController::class, 'fileExport'])->name('file-export');
+
+
+
+
 
 
 ?>
