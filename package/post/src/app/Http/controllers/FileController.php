@@ -3,6 +3,8 @@
  namespace Package\Post\App\Http\Controllers;
  use App\Http\Controllers\Controller;
  use Maatwebsite\Excel\Facades\Excel;
+ use App\Exports\UsersExport;
+use App\Imports\UsersImport;
 
  
 use Illuminate\Http\Request;
@@ -50,21 +52,26 @@ class FileController extends Controller
   
     }
    
-    /**
-    // * @return \Illuminate\Support\Collection
-    // */
-    // public function fileImport(Request $request) 
-    // {
-    //     Excel::import(new Document, $request->file('file')->store('temp'));
-    //     return back();
-    // }
-
+    public function importExportView()
+    {
+       return view('post::file');
+    }
+     
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function fileExport() 
+    public function export() 
     {
-        // $file = $this->document->
-        return Excel::download(new Document, 'users-collection.xlsx');
-    }    
+        return Excel::download(new UsersExport, 'asdfgh.xlsx');
+    }
+     
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function import() 
+    {
+        Excel::import(new UsersImport,request()->file('file'));
+             
+        return back();
+    }  
 }

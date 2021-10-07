@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\FirebaseController;
+
 
 
 /*
@@ -28,4 +30,9 @@ Route::get('/dashboard', [LoginController::class, 'userDashboard'])->middleware(
 
 
 Route::get('/curl/{name}', [LoginController::class, 'curl']);
+
+
+
+Route::get('firebase-phone-authentication', [FirebaseController::class, 'index']);
+
  

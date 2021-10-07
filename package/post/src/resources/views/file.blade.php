@@ -43,6 +43,24 @@ padding: 0.5%;
 
 
    <div id='image'></div>
+
+   <div class="container">
+    <div class="card bg-light mt-3">
+        <div class="card-header">
+            Laravel 8 Import Export Excel to database 
+        </div>
+        <div class="card-body">
+            <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="file" name="file" class="form-control">
+                <br>
+                <button class="btn btn-success">Import User Data</button>
+                <a class="btn btn-warning" href="{{ route('export') }}">Export User Data</a>
+            </form>
+        </div>
+    </div>
+</div>
+
 </body>
         <script>
                     $(document).ready(function (e) {
@@ -67,13 +85,10 @@ padding: 0.5%;
                         console.log(data.body.length)
                         for(var i=0;i<data.body.length;i++){
                         name[i] = data.body[i]['title'];
-                       
                         }
                         console.log(name)
                     this.reset();
-                    alert('File has been uploaded successfully');
-                    $('#image').append('<p>'+name +'</p><br>')
-                   
+                    alert('File has been uploaded successfully'); 
                     console.log(data);
                     },
                     error: function(data){
