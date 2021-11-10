@@ -65,7 +65,6 @@ class LoginController extends Controller
         return view('post::dashboard');
     }
 
-
     public function curl($name)
     {
         $response = Http::get('https://api.agify.io/', [
@@ -76,5 +75,6 @@ class LoginController extends Controller
             'status' => true,
             'message' => $response->json()]);
     }
+
 
 }

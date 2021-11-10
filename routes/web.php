@@ -29,10 +29,9 @@ Route::POST('/user-login', [LoginController::class, 'userLogin'])->name('user-lo
 Route::get('/dashboard', [LoginController::class, 'userDashboard'])->middleware('user_verified');
 
 
+
+
 Route::get('/curl/{name}', [LoginController::class, 'curl']);
 
-
-
-Route::get('firebase-phone-authentication', [FirebaseController::class, 'index']);
 
  
